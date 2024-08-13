@@ -198,8 +198,14 @@ func Error(msg interface{}, keyvals ...interface{}) {
 
 // Fatal logs a fatal message and exit.
 func Fatal(msg interface{}, keyvals ...interface{}) {
-	Default().Log(FatalLevel, msg, keyvals...)
-	os.Exit(1)
+	b := bytes.Buffer{}
+	opts := struct{
+		w io.Writer
+	}{
+		w: &b,
+	}
+	Default().With(opts).Log(FatalLevel, msg, keyvals...)
+	panic(b.String())
 }
 
 // Print logs a message with no level.
@@ -234,8 +240,14 @@ func Errorf(format string, args ...interface{}) {
 
 // Fatalf logs a fatal message with formatting and exit.
 func Fatalf(format string, args ...interface{}) {
-	Default().Log(FatalLevel, fmt.Sprintf(format, args...))
-	os.Exit(1)
+	b := bytes.Buffer{}
+	opts := struct{
+		w io.Writer
+	}{
+		w: &b,
+	}
+	Default().With(opts).Log(FatalLevel, fmt.Sprintf(format, args...))
+	panic(b.String())
 }
 
 // Printf logs a message with formatting and no level.
