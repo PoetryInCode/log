@@ -1,5 +1,14 @@
 # Log
 
+## Changes
+
+In this fork of charm.sh's log package I changed how a calls to Fatal() work.
+Instead of letting the program exit in a natural way. A call to Fatal() would
+call os.Exit(1) and would not allow threads (and other resources) to be safely
+cleaned up. So I forked it and fixed this behavior. Now, it will call panic and
+let the error bubble up through the stack. So it can be resolve()d or "safely"
+crash the program.
+
 <p>
     <picture>
       <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25087/219742757-c8afe0d9-608a-4845-a555-ef59c0af9ebc.png" width="359">
