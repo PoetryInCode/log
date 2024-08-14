@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/charmbracelet/log"
+	"github.com/PoetryInCode/log"
 )
 
 func main() {

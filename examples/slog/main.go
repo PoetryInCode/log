@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/charmbracelet/log"
+	"github.com/PoetryInCode/log"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/charmbracelet/log"
+	"github.com/PoetryInCode/log"
 )
 
 func main() {

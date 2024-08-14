@@ -1,6 +1,6 @@
 package main
 
-import "github.com/charmbracelet/log"
+import "github.com/PoetryInCode/log"
 
 func startOven(degree int) {
 	log.Helper()
